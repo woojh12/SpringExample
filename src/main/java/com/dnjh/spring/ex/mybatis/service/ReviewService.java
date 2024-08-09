@@ -19,4 +19,25 @@ public class ReviewService {
 		
 		return review;
 	}
+	
+	// 리뷰에 저장할 값들을 전달 받고, 리뷰 저장
+	// insert문은 수행시 정수 1을 반환함
+	public int addReview(int scoreId
+			, String menu
+			, String userName
+			, double point
+			, String review)
+	{
+		int count = reviewRepository.insertReview(scoreId, menu, userName, point, review);
+		
+		return count;
+	}
+	
+	// 리뷰에 저장할 값들을 객체로 전달 받고, 리뷰 저장 기능
+	public int addReviewByObject(Review review)
+	{
+		int count = reviewRepository.insertReveiwByObject(review);
+		
+		return count;
+	}
 }
