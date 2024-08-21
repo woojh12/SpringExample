@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dnjh.spring.ex.mvc.service.UserService;
 
@@ -20,6 +21,7 @@ public class NewUserController {
 	
 	// 사용자 추가 API
 	@PostMapping("/create")
+	@ResponseBody
 	public Map<String, String> createUser(
 			@RequestParam("name") String name
 			,@RequestParam("birthday") String birthday
