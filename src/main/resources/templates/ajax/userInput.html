@@ -7,7 +7,7 @@
 <body>
 	<label>이름 : </label><input type="text" id="nameInput"><br>
 	<label>생년월일 : </label><input type="text" id="birthdayInput"><br>
-	<label>이메일 : </label><input type="text" id="emailInput"><br>
+	<label>이메일 : </label><input type="text" id="emailInput"><button type="button">이메일 중복확인</button><br>
 	<textarea rows="5" cols="50" id="introduceInput"></textarea><br>
 	<button type="submit" id="addBtn">추가</button>	
 	
@@ -57,7 +57,7 @@
 						if(data.result == "success")
 						{
 							// 성공
-							alert("추가 성공")
+							alert("추가 성공");
 						}
 						else
 						{
@@ -67,7 +67,7 @@
 					}
 					, error:function()
 					{
-						alert("에러!!")
+						alert("에러!!");
 					}
 				});
 			});
