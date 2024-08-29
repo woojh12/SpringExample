@@ -1,5 +1,8 @@
 package com.dnjh.spring.ex.jpa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dnjh.spring.ex.jpa.domain.Student;
+import com.dnjh.spring.ex.jpa.repository.StudentRepository;
 import com.dnjh.spring.ex.jpa.service.StudentService;
 
 @Controller
@@ -14,6 +18,9 @@ import com.dnjh.spring.ex.jpa.service.StudentService;
 public class StudentController {
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private StudentRepository studentRepository;
 	
 	// C, U, D
 	@GetMapping("/create")
@@ -63,5 +70,35 @@ public class StudentController {
 				.build();
 		
 		return student;
+	}
+	
+	@GetMapping("/find")
+	@ResponseBody
+	public List<Student> findStudent()
+	{
+		// 모든행 조회
+		List<Student> studentList = null;
+//		studentList = studentRepository.findAll();
+		
+//		studentList = studentRepository.findAllByOrderByIdDesc();
+		
+//		studentList = studentRepository.findTop2ByOrderByIdDesc();
+		
+//		studentList = studentRepository.findByName("HongGilDong");
+		
+		// 특정인물 조회
+//		List<String> nameList = new ArrayList<>();
+//		nameList.add("유재석");
+//		nameList.add("조세호");
+//		
+//		studentList = studentRepository.findByNameIn(nameList);
+		
+//		studentList = studentRepository.findByEmailContaining("gmail");
+		
+//		studentList = studentRepository.findByIdBetweenOrderByIdDesc(1, 5);
+		
+		studentList = studentRepository.selectByDreamJob("프로그래머");
+		
+		return studentList;
 	}
 }
