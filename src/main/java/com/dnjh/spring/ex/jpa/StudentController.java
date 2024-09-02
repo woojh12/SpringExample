@@ -19,6 +19,8 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
+	// 임시로 사용하는 형태
+	// 절대 Controller 에서는 Repository 객체를 다루면 안됨
 	@Autowired
 	private StudentRepository studentRepository;
 	
